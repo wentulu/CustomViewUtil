@@ -4,8 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -86,23 +84,42 @@ public class WagWallClock extends View {
         drawCircle(canvas);
         drawScale(canvas);
         drawScaleValue(canvas);
+        drawWatchHand(canvas);
+
     }
 
+
+    /**
+     * 表针
+     * */
+    private void drawWatchHand(Canvas canvas) {
+        canvas.save();
+        canvas.translate(centerX,centerY);
+        scaleLinePaint.setStrokeWidth(25);
+        canvas.drawLine(0,0,100,100,scaleLinePaint);
+        scaleLinePaint.setStrokeWidth(10);
+        scaleLinePaint.setStrokeCap(Paint.Cap.ROUND);
+        canvas.drawLine(0,0,100,200,scaleLinePaint);
+        canvas.translate(-centerX,-centerY);
+        canvas.restore();
+    }
+
+    /**
+     * 刻度的数值
+     * */
     private void drawScaleValue(Canvas canvas) {
         int left = 0, top = 0;
-        int decent = 0, assent = 0;
+        int decent;
         for (int scale : SCALES_VALUE) {
             int radius = getMeasuredHeight() / 2;
             if (scale == 12 || scale == 3 || scale == 6 || scale == 9) {
                 scaleLinePaint.setTextSize(SizeUtil.sp2Pixel(20f, getContext()));
                 decent = (int) scaleLinePaint.getFontMetrics().bottom;
-                assent = (int) scaleLinePaint.getFontMetrics().top;
                 radius -= (scaleLineLLenght + circleWidth + scaleLinePaint.getTextSize());
             } else {
                 scaleLinePaint.setTextSize(SizeUtil.sp2Pixel(15f, getContext()));
                 radius -= (scaleLineSLenght + circleWidth + scaleLinePaint.getTextSize());
                 decent = (int) scaleLinePaint.getFontMetrics().bottom;
-                assent = (int) scaleLinePaint.getFontMetrics().top;
             }
             float degrees = 30f * scale;
             if (degrees <= 90) {
@@ -161,7 +178,6 @@ public class WagWallClock extends View {
      */
     private void drawCircle(Canvas canvas) {
         float radius = getMeasuredHeight() / 2f - circleWidth;
-
         canvas.drawCircle(centerX, centerY, radius, circlePaint);
 
     }
