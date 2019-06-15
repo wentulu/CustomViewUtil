@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg_music_control"
+    android:padding="10dp"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical">
+
+    <ImageButton
+        android:id="@+id/play_stop_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/ic_play"/>
+
+
+    <TextView
+        android:id="@+id/current_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:textColor="@android:color/white"
+        android:text="00:00"
+        android:textSize="15sp"/>
+
+    <SeekBar
+        android:id="@+id/progress_seek_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:maxHeight="3dp"
+        android:minHeight="3dp"
+        android:layout_weight="1"
+        android:progress="0"
+        android:max="1000"
+        android:thumb="@drawable/seek_bar_thumb"
+        android:progressDrawable="@drawable/music_seek_bar_bg"/>
+    <TextView
+        android:id="@+id/total_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:text="00:00"
+        android:layout_marginRight="10dp"
+        android:textSize="15sp"/>
+</merge>

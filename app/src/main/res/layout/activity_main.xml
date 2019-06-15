@@ -5,10 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context=".MainActivity">
 
-    <cn.stu.ruiz.myapplication.view.clockv.WagWallClock
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
+    <cn.stu.ruiz.myapplication.view.music.PlayMusicControllView
+        android:id="@+id/play_music_control_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </cn.stu.ruiz.myapplication.view.music.PlayMusicControllView>
+
+    <cn.stu.ruiz.myapplication.view.music.PlayMusicControllView
+        android:id="@+id/play_music_control_view_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </cn.stu.ruiz.myapplication.view.music.PlayMusicControllView>
+    <cn.stu.ruiz.myapplication.view.music.PlayMusicControllView
+        android:id="@+id/play_music_control_view_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </cn.stu.ruiz.myapplication.view.music.PlayMusicControllView>
+    <cn.stu.ruiz.myapplication.view.music.PlayMusicControllView
+        android:id="@+id/play_music_control_view_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </cn.stu.ruiz.myapplication.view.music.PlayMusicControllView>
 </LinearLayout>
