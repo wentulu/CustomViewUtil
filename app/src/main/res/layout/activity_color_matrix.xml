@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.ColorMatrixActivity">
+
+    <cn.stu.ruiz.myapplication.canvas.ColorOffsetImageView
+        android:id="@+id/img_view"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        app:img="@mipmap/ic_launcher"/>
+
+    <android.support.v7.widget.AppCompatSeekBar
+        android:id="@+id/scale_seek_bar"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:max="100"/>
+    <android.support.v7.widget.AppCompatSeekBar
+        android:id="@+id/saturation_seek_bar"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:max="100"
+        android:layout_height="wrap_content" />
+    <android.support.v7.widget.AppCompatSeekBar
+        android:id="@+id/rotate_seek_bar"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:max="360"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
