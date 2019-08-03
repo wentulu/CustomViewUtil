@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <attr name="img" format="reference"></attr>
+
+
     <declare-styleable name="ColorOffsetImageView">
-        <attr name="img" format="reference"/>
+        <attr name="img"></attr>
     </declare-styleable>
+
+    <declare-styleable name="FlagView">
+        <attr name="img" />
+        <attr name="amplitude" format="dimension" />
+    </declare-styleable>
+
 </resources>

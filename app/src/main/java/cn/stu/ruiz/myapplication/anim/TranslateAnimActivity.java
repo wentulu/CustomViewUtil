@@ -1,28 +1,22 @@
-package cn.stu.ruiz.myapplication;
+package cn.stu.ruiz.myapplication.anim;
 
+import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.graphics.Outline;
-import android.media.MediaPlayer;
-import android.net.Uri;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.io.IOException;
+import cn.stu.ruiz.myapplication.R;
 
-import cn.stu.ruiz.myapplication.utils.DisplayScreenUtil;
-import cn.stu.ruiz.myapplication.utils.SizeUtil;
-import cn.stu.ruiz.myapplication.view.music.PlayMusicControllView;
-
-public class MainActivity extends AppCompatActivity {
+public class TranslateAnimActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
@@ -34,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_translate_anim);
 
         initView();
     }
@@ -49,9 +43,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        AnimatorSet animatorSet = new AnimatorSet();
+        AnimationSet animatonSet1 = new AnimationSet(false);
         TranslateAnimation line_1translate = new TranslateAnimation(Animation.RELATIVE_TO_PARENT, 0f, Animation.RELATIVE_TO_PARENT, 0f, Animation.RELATIVE_TO_PARENT, 0, Animation.RELATIVE_TO_PARENT, 0.5f);
-        line_1translate.setAnimationListener(new Animation.AnimationListener() {
+        line_1translate.setDuration(1000);
+        ScaleAnimation line_1sacle = new ScaleAnimation(1f,0.6f,1f,0.9f);
+        line_1sacle.setDuration(1000);
+        animatonSet1.addAnimation(line_1translate);
+        animatonSet1.addAnimation(line_1sacle);
+        animatonSet1.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
 
@@ -74,27 +73,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        AnimationSet animationSet2 = new AnimationSet(false);
         TranslateAnimation line_2translate = new TranslateAnimation(Animation.RELATIVE_TO_PARENT, 0f, Animation.RELATIVE_TO_PARENT, 0f, Animation.RELATIVE_TO_SELF, 0f, Animation.RELATIVE_TO_PARENT, -0.5f);
-        line_2translate.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-        line_1translate.setDuration(1000);
         line_2translate.setDuration(1000);
-        line_one.startAnimation(line_1translate);
-        line_two.startAnimation(line_2translate);
+        animationSet2.addAnimation(line_2translate);
+        animationSet2.addAnimation(line_1sacle);
+
+        line_one.startAnimation(animatonSet1);
+        line_two.startAnimation(animationSet2);
     }
 
 
