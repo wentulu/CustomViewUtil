@@ -12,9 +12,7 @@ import cn.stu.ruiz.myapplication.utils.DisplayScreenUtil;
 
 
 /**
- * 关于图层
- * 受用save系列方法保存图层
- * 使用restore合并图层到画布
+ * 关于图层，这里使用了
  *
  * */
 public class CanvasLayerView extends View {

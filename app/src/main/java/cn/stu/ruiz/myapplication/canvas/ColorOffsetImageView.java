@@ -2,6 +2,7 @@ package cn.stu.ruiz.myapplication.canvas;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
@@ -11,14 +12,12 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 
 import cn.stu.ruiz.myapplication.R;
 import cn.stu.ruiz.myapplication.utils.SizeUtil;
-/**
- * 关于颜色矩阵的使用
- * 调整颜色的饱和度（saturation）、色调（rotate）、亮度（scale）
- * */
+
 public class ColorOffsetImageView extends View {
 
     private static final String TAG = "ColorOffsetImageView";
